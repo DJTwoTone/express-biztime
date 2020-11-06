@@ -8,7 +8,8 @@ const slugify = require('slugify')
 router.get("/", async function(req, res, next) {
     try {
         const results = await db.query(
-            `SELECT * FROM companies`
+            `SELECT code, name
+            FROM companies`
         );
         return res.json({companies: results.rows});
 
